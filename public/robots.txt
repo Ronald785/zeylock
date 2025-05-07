@@ -1,0 +1,6 @@
+# robots.txt
+User-agent: *
+Allow: /
+
+# Aponta para o sitemap
+Sitemap: https://zeylock.vercel.app/sitemap.xml
