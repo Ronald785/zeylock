@@ -7,7 +7,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { HiClipboard, HiCheck } from "react-icons/hi";
 import "./index.css";
 import { Slider } from "./components/ui/slider";
-import { GiPadlock } from "react-icons/gi";
 
 export default function App() {
     const [password, setPassword] = useState("");
@@ -50,15 +49,21 @@ export default function App() {
 
     return (
         <div className="bg-background text-foreground flex min-h-screen flex-col transition-colors duration-200">
-            <header className="px-4 py-16 text-center">
-                <nav className="mb-8 flex justify-center">
+            <header className="px-4 py-16 text-center sm:pb-0">
+                <nav
+                    className="mb-8 flex justify-center"
+                    aria-label="Navegação principal"
+                >
                     <a
-                        href="#"
+                        href="/"
                         className="flex items-center text-3xl font-semibold lg:text-4xl"
+                        aria-label="Página inicial"
                     >
-                        <GiPadlock
-                            className="mr-2 text-green-400"
-                            size={32}
+                        <img
+                            src="/images/padlock.svg"
+                            alt="Cadeado"
+                            className="mx-2 w-8"
+                            loading="eager"
                         />
                         <h1 className="text-primary">Zeylock</h1>
                     </a>
@@ -75,13 +80,20 @@ export default function App() {
                         <CardTitle className="mb-6 text-center text-xl font-semibold">Gerador de Senhas</CardTitle>
 
                         <div className="mb-4 flex">
-                            <Input
-                                className="flex-1 rounded-r-none border-0 placeholder-gray-500 shadow focus:ring-0"
-                                value={password}
-                                readOnly
-                                placeholder="Senha"
-                            />
+                            <div
+                                aria-live="polite"
+                                className="w-full"
+                            >
+                                <Input
+                                    className="flex-1 rounded-r-none border-0 placeholder-gray-500 shadow"
+                                    value={password}
+                                    readOnly
+                                    placeholder="Senha"
+                                    aria-label="Senha gerada"
+                                />
+                            </div>
                             <Button
+                                aria-label={copied ? "Senha copiada para a área de transferência" : "Copiar senha"}
                                 className="bg-primary cursor-pointer rounded-l-none text-black hover:bg-green-600"
                                 onClick={copyPassword}
                             >
@@ -111,13 +123,15 @@ export default function App() {
                                         value={[length]}
                                         onValueChange={(val) => setLength(val[0])}
                                         className="accent-green-400"
+                                        aria-label="Comprimento da senha"
+                                        aria-valuemin={4}
+                                        aria-valuemax={32}
+                                        aria-valuenow={length}
                                     />
                                 </div>
                             </div>
 
                             <div className="mb-6 space-y-4">
-                                <div className="flex flex-col gap-1">{/* … */}</div>
-
                                 <div className="grid grid-cols-2 gap-2">
                                     <div className="flex items-center space-x-2">
                                         <Checkbox
@@ -183,10 +197,14 @@ export default function App() {
                         </div>
 
                         <Button
+                            disabled={!useUpper && !useLower && !useNumbers && !useSymbols}
+                            aria-disabled={!useUpper && !useLower && !useNumbers && !useSymbols}
                             className="w-full cursor-pointer bg-green-400 py-3 font-semibold text-black hover:bg-green-500 dark:bg-green-600 dark:text-[#0D1117] dark:hover:bg-green-500"
                             onClick={generate}
                         >
-                            Gerar Senha
+                            {!useUpper && !useLower && !useNumbers && !useSymbols
+                                ? "Selecione uma opção"
+                                : "Gerar Senha"}
                         </Button>
                     </CardContent>
                 </Card>
