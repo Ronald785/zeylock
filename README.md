@@ -1,54 +1,58 @@
-# React + TypeScript + Vite
+## 🔐 Zeylock - Gerador de Senhas Fortes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Zeylock é um gerador de senhas seguro e totalmente personalizável, construído em React para você criar senhas em segundos.
 
-Currently, two official plugins are available:
+### 📦 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React](https://react.dev/)
+- [Vite](https://vite.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [react-icons](https://github.com/react-icons/react-icons)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🚀 Como rodar o projeto
 
-```js
-export default tseslint.config({
-    extends: [
-        // Remove ...tseslint.configs.recommended and replace with this
-        ...tseslint.configs.recommendedTypeChecked,
-        // Alternatively, use this for stricter rules
-        ...tseslint.configs.strictTypeChecked,
-        // Optionally, add this for stylistic rules
-        ...tseslint.configs.stylisticTypeChecked,
-    ],
-    languageOptions: {
-        // other options...
-        parserOptions: {
-            project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-            tsconfigRootDir: import.meta.dirname,
-        },
-    },
-});
+#### 1. Clone o repositório
+
+```bash
+git clone https://github.com/ronald785/zeylock.git
+cd zeylock
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+#### 2. Instale as dependências
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config({
-    plugins: {
-        // Add the react-x and react-dom plugins
-        "react-x": reactX,
-        "react-dom": reactDom,
-    },
-    rules: {
-        // other rules...
-        // Enable its recommended typescript rules
-        ...reactX.configs["recommended-typescript"].rules,
-        ...reactDom.configs.recommended.rules,
-    },
-});
+```bash
+npm install
 ```
+
+#### 3. Inicie em modo de desenvolvimento
+
+```bash
+npm run dev
+```
+
+---
+
+### 💬 Como usar
+
+1. Acesse `http://localhost:5173` no navegador.
+2. Defina o comprimento da senha usando o slider ou o campo numérico.
+3. Marque as opções de caracteres que deseja incluir (maiúsculas, minúsculas, números e símbolos).
+4. Clique em **Gerar Senha**.
+5. Clique no ícone de clipboard para copiar a senha gerada.
+
+---
+
+### 📄 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+---
+
+## Ronald Almeida
+
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/Ronald785)](https://github.com/Ronald785)
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/ronald785/)](https://www.linkedin.com/in/ronald785/)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&link=mailto:ronaldmateus785@gmail.com)](mailto:ronaldmateus785@gmail.com)
