@@ -10,9 +10,10 @@ import usePasswordSettings from "./hooks/usePasswordSettings";
 import { useState } from "react";
 
 export default function App() {
-    const [password, setPassword] = useState<string>("");
     const [copied, setCopied] = useState<boolean>(false);
     const settings = usePasswordSettings();
+
+    const [password, setPassword] = useState<string>(() => generatePassword(settings as PasswordProps));
 
     const handleGenerate = () => {
         const pwd = generatePassword(settings as PasswordProps);
