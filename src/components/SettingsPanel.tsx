@@ -99,7 +99,7 @@ export const SettingsPanel: FC<Props> = ({
                                 className="cursor-pointer"
                             />
                             <Label
-                                htmlFor="upper"
+                                htmlFor={opt.id}
                                 className="text-foreground"
                             >
                                 {opt.label}
